@@ -21,3 +21,19 @@ class TxtFileHandler:
         except Exception as e:
             print(f"Ошибка при чтении файла: {e}")
             return ""
+        
+        
+    def write_file(self, filepath: str, *data: str) -> None:
+        """Записывает данные в TXT файл.
+
+        Args:
+            filepath (str): Путь к файлу.
+            *data (str): Строки для записи.
+        """
+        try:
+            with open(filepath, 'w', encoding='utf-8') as file:
+                for item in data:
+                    file.write(item)
+        except Exception as e:
+            print(f"Ошибка при записи в файл: {e}")
+
